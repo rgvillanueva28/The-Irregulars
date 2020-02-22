@@ -5,6 +5,11 @@ import 'LogIn.dart';
 void main() {
   runApp(
     new MaterialApp(
+      theme: ThemeData(
+        primaryColor: Colors.red,
+        primarySwatch: Colors.red,
+        brightness: Brightness.dark,
+      ),
       debugShowCheckedModeBanner: false,
       home: MyApp(),
       routes: <String, WidgetBuilder>{

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class LogIn extends StatefulWidget {
   final _formKey = GlobalKey<FormState>();
@@ -26,15 +28,15 @@ class _LogInState extends State<LogIn> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    /*Padding(
+                    Padding(
                       padding: const EdgeInsets.only(
                           top: 15.0, left: 25.0, right: 25.0),
                       child: Center(
                         child: Image(
-                            image: AssetImage("images/logo.jpg") //image location and name
+                            image: AssetImage("images/logo280.png") //image location and name
                         )
                       ),
-                    ),*/ //remove comment for image
+                    ), //remove comment for image
                     Padding(
                       padding: const EdgeInsets.only(
                           top: 15.0, left: 25.0, right: 25.0),
