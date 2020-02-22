@@ -14,6 +14,18 @@ class _LogInState extends State<LogIn> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
+  Widget build01(BuildContext context){
+    return MaterialApp(
+      home: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+          image: AssetImage("images/loginbg.jpg"),
+        ),
+      ),
+    ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) => new Scaffold(
       appBar: new AppBar(
@@ -122,26 +134,3 @@ class _LogInState extends State<LogIn> {
 
 
 
-/*
-    body: new Container(
-      child: new Center(
-        child: new RaisedButton(
-            child: new Text(
-                'Login for App (${this._status})'
-            ),
-            onPressed: () {
-              setState(() => this._status = 'loading');
-
-              appAuth.login().then((result) {
-                if (result) {
-                  Navigator.of(context).pushReplacementNamed('/home');
-                } else {
-                  setState(() => this._status = 'rejected');
-                }
-              });
-            }
-        ),
-      ),
-    ),
-  );
-}*/
