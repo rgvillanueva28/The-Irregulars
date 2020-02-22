@@ -15,6 +15,8 @@ class _SignUpState extends State<SignUp> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _password2Controller = TextEditingController();
+  bool isEmpty1 = true;
+  bool isEmpty2 = true;
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -111,6 +113,7 @@ class _SignUpState extends State<SignUp> {
                             if (value.isEmpty) {
                               return 'Please enter your password';
                             }
+
                             return null;
                           },
                           obscureText: true,
@@ -129,7 +132,9 @@ class _SignUpState extends State<SignUp> {
                             if (value.isEmpty) {
                               return 'Please confirm your password';
                             }
-
+                            else if (value != _passwordController.text) {
+                              return 'Passwords do not match';
+                            }
                             return null;
                           },
                           obscureText: true,
@@ -146,12 +151,6 @@ class _SignUpState extends State<SignUp> {
                             if (_formKey.currentState.validate()) {
                               //                              // Process data.
                             }
-
-                            if (passValidate()==true){
-                              print("done");
-                            } else{
-                              print("passwords do not match");
-                            }
                           },
                           child: Text('Submit'),
                         ),
@@ -165,15 +164,5 @@ class _SignUpState extends State<SignUp> {
         ),
       ),
     );
-  }
-
-  bool passValidate() {
-    String password = _passwordController.text;
-    String password2 = _password2Controller.text;
-    if (password == password2) {
-      return true;
-    } else {
-      return false;
-    }
   }
 }
