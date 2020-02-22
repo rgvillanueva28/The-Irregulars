@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase/firebase.dart';
 
 class SignUp extends StatefulWidget {
   final _formKey = GlobalKey<FormState>();
@@ -148,7 +149,12 @@ class _SignUpState extends State<SignUp> {
                             }
 
                             if (passValidate()==true){
-                              print("done");
+                              String _fname = _fnameController.toString();
+                              String _lname = _lnameController.toString();
+                              String _mname = _mnameController.toString();
+                              String _email = _emailController.toString();
+                              String _password = _passwordController.toString();
+
                             } else{
                               print("passwords do not match");
                             }
