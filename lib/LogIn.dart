@@ -1,27 +1,60 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:whatsurulam/FirstScreen.dart';
+import 'package:whatsurulam/home.page.dart';
+
+import 'auth.service.dart';
+import 'main.dart';
+import 'package:flutter/painting.dart';
+import 'SignUp.dart';
+import 'LogIn.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 final GoogleSignIn googleSignIn = GoogleSignIn();
 
 class LogIn extends StatefulWidget {
-  final _formKey = GlobalKey<FormState>();
 
   @override
   _LogInState createState() => new _LogInState();
 }
 
 class _LogInState extends State<LogIn> {
+  String _status = 'no-action';
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+
+  Widget build01(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        primaryColor: Colors.red,
+        primarySwatch: Colors.red,
+        brightness: Brightness.dark,
+      ),
+      home: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("images/logo280.jpg"),
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Log in"),
+        title: new Text("What's your Ulam Pare?"),
+        actions: <Widget>[
+          FlatButton.icon(
+              icon: Icon(Icons.person),
+              label: Text('Sign up'),
+              textColor: Colors.white,
+              onPressed: () {
+                Navigator.pushNamed(context, '/signUp');
+              }),
+        ],
       ),
       body: Center(
         child: ListView(
@@ -77,51 +110,43 @@ class _LogInState extends State<LogIn> {
                         ),
                       ),
                     ),
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 16.0),
-                        child: RaisedButton(
-                          onPressed: () {
-                            // Validate will return true if the form is valid, or false if
-                            // the form is invalid.
-                            if (_formKey.currentState.validate()) {
-                              // Process data.
-                            }
-                          },
-                          child: Text('Log In'),
-                        ),
-                      ),
-                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                          padding: const EdgeInsets.only(
+                              top: 15, left: 8.0, right: 8.0),
                           child: Container(
+                            height: 50,
                             width: 180.0,
                             child: RaisedButton(
                               onPressed: () {
                                 // Validate will return true if the form is valid, or false if
                                 // the form is invalid.
-                                //if (_formKey.currentState.validate()) {
-                                // Process data.
-                                //}
+                                if (_formKey.currentState.validate()) {
+                                  // Process data.
+                                }
                               },
-                              child: Text('Log In with FaceBook'),
+                              child: Text(
+                                'Log In',
+                                style: TextStyle(fontSize: 12),
+                              ),
                             ),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                          padding: const EdgeInsets.only(
+                              top: 15, left: 8.0, right: 8.0),
                           child: Container(
-                            width: 190.0,
+                            height: 50,
+                            width: 180.0,
                             child: RaisedButton(
                               onPressed: () {
                                 signInWithGoogle().whenComplete(() {
-                                  Navigator.of(context).push(
+                                  Navigator.of(context).pushReplacement(
                                     MaterialPageRoute(
                                       builder: (context) {
-                                        return FirstScreen();
+                                        return HomePage();
                                       },
                                     ),
                                   );
@@ -137,7 +162,8 @@ class _LogInState extends State<LogIn> {
                                         height: 20.0),
                                   ),
                                   Text(
-                                    'Sign in with Google',
+                                    'Log in with Google',
+                                    style: TextStyle(fontSize: 12),
                                   )
                                 ],
                               ),
@@ -160,7 +186,7 @@ class _LogInState extends State<LogIn> {
 Future<String> signInWithGoogle() async {
   final GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
   final GoogleSignInAuthentication googleSignInAuthentication =
-  await googleSignInAccount.authentication;
+      await googleSignInAccount.authentication;
 
   final AuthCredential credential = GoogleAuthProvider.getCredential(
     accessToken: googleSignInAuthentication.accessToken,
@@ -179,8 +205,7 @@ Future<String> signInWithGoogle() async {
   return 'signInWithGoogle succeeded: $user';
 }
 
-
-void signOutGoogle() async{
+void signOutGoogle() async {
   await googleSignIn.signOut();
 
   print("User Sign Out");
