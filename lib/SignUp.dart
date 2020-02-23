@@ -1,5 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase/firebase.dart';
+import 'package:firebase_database/firebase_database.dart';
+
+final FireBaseApp app= FireBaseApp(
+  options: FirebaseOptions(
+   googleAppID: '973799572092',
+   apiKey: 'AIzaSyBQjwu_cO4v5b51UwSZfQlVcQ6pEPiZoAo',
+   databaseURL: 'https://whats-your-ulam.firebaseio.com',
+  ));
+
+class Item {
+  String key;
+  String fname;
+  String mname;
+  String lname;
+  String email;
+  String fpassword;
+
+  Item(this.key, this.fname, this.mname, this.lname, this.email, this.fpassword);
+
+  Item.fromSnapshot(DataSnapshot snapshot)
+    : key = snapshot.key,
+      fname = snapshot.value["fname"],
+      mname = snapshot.value["mname"],
+      lname = snapshot.value["lname"],
+      email = snapshot.value["email"],
+      fpassword = snapshot.value["fpassword"];
+
+  toJson() {
+    return {
+      "fname":fname,
+      "mname":mname,
+      "lname":lname,
+      "email":email,
+      "fpassword":fpassword,
+    };
+  }
+}
 
 class SignUp extends StatefulWidget {
   final _formKey = GlobalKey<FormState>();

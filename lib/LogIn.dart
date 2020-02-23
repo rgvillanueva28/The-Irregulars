@@ -1,4 +1,4 @@
-import 'package:googleapis/sheets/v4.dart';
+
 import 'auth.service.dart';
 import 'main.dart';
 import 'package:flutter/painting.dart';
@@ -31,6 +31,7 @@ class _LogInState extends State<LogIn> {
   Widget build(BuildContext context) => new Scaffold(
       appBar: new AppBar(
         title: new Text('Login'),
+        backgroundColor: Colors.orange,
       ),
       body: Center(
         child: ListView(
@@ -41,6 +42,41 @@ class _LogInState extends State<LogIn> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              left: 25.0, right: 25.0, top: 15),
+                          child: Center(
+                            child: new Container(
+                                width: 200.0,
+                                height: 200.0,
+                                alignment: Alignment.center,
+                                decoration: new BoxDecoration(
+                                  image :DecorationImage(
+                                    image: AssetImage('assets/logo.png'),
+                                    fit: BoxFit.fill
+                                ),
+                            )
+                          )
+                          )
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            left: 25.0, right: 25.0, top: 30.0),
+                          child: Center(
+                            child: Text(
+                              "What\'s your ulam?",
+                              style: new TextStyle(
+                                fontSize: 24.0,
+                                color:  Colors.black,
+                              ),
+                            ),
+                          )
+                              ),
+                            ]
+                    )
+
+                          ),
+                        ),
                         Padding(
                           padding: const EdgeInsets.only(
                               left: 25.0, right: 25.0),
@@ -60,7 +96,8 @@ class _LogInState extends State<LogIn> {
                           ),
                         ),
                         Padding(
-                          padding:const EdgeInsets.only(left: 25.0, right: 25.0),
+                          padding:const EdgeInsets.only(
+                              left: 25.0, right: 25.0),
                           child:Center(
                             child: TextFormField(
                               controller: _passwordController,
@@ -125,11 +162,7 @@ class _LogInState extends State<LogIn> {
                     ),
                   )
 
-              )
-            ]
-        ),
-      )
-  );
+              );
 }
 
 

@@ -15,6 +15,7 @@ void main() async {
     _defaultHome = new HomePage();
   }
 
+
   // Run app!
   runApp(new MaterialApp(
     title: 'App',
@@ -23,6 +24,8 @@ void main() async {
       // Set routes for using the Navigator.
       '/home': (BuildContext context) => new HomePage(),
       '/login': (BuildContext context) => new LogIn()
+
     },
   ));
+
 }
