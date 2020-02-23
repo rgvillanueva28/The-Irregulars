@@ -4,14 +4,10 @@ import 'LogIn.dart';
 import 'home.page.dart';
 import 'auth.service.dart';
 
+
 void main() {
   runApp(
     new MaterialApp(
-      theme: ThemeData(
-        primaryColor: Colors.red,
-        primarySwatch: Colors.red,
-        brightness: Brightness.dark,
-      ),
       debugShowCheckedModeBanner: false,
       home: MyApp(),
       routes: <String, WidgetBuilder>{
@@ -51,6 +47,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
+
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -87,7 +84,11 @@ class _MyHomePageState extends State<MyHomePage> {
             onPressed: () {
               Navigator.pushNamed(context, '/signUp');
             },
-          )
+          ),
+          IconButton(
+              icon: Icon(Icons.people),
+              onPressed: null)
+
         ],
       ),
       body: Center(

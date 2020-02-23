@@ -151,6 +151,19 @@ class _SignUpState extends State<SignUp> {
                             if (_formKey.currentState.validate()) {
                               //                              // Process data.
                             }
+
+
+                            if (passValidate()==true){
+                              String _fname = _fnameController.toString();
+                              String _lname = _lnameController.toString();
+                              String _mname = _mnameController.toString();
+                              String _email = _emailController.toString();
+                              String _password = _passwordController.toString();
+
+                            } else{
+                              print("passwords do not match");
+                            }
+
                           },
                           child: Text('Submit'),
                         ),
@@ -165,4 +178,15 @@ class _SignUpState extends State<SignUp> {
       ),
     );
   }
+
+  bool passValidate() {
+    String password = _passwordController.text;
+    String password2 = _password2Controller.text;
+    if (password == password2) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
+
