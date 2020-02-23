@@ -56,6 +56,9 @@ class _LogInState extends State<LogIn> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
+                        Hero(
+                            tag: 'tagImage1'
+                        ),
                         Padding(
                           padding: const EdgeInsets.only(
                               left: 25.0, right: 25.0, top: 15),
@@ -135,6 +138,7 @@ class _LogInState extends State<LogIn> {
                           child: Padding(
                             padding: const EdgeInsets.symmetric(vertical:  16.0),
                             child: RaisedButton(
+
                               onPressed: (){
                                 //setState(() => this._status = 'loading');
 
@@ -146,7 +150,8 @@ class _LogInState extends State<LogIn> {
                                   }
                                 });
                               },
-                              child: Text('Log In'),
+                              child:
+                              Text('Log In'),
                             ),
                           ),
                         ),
