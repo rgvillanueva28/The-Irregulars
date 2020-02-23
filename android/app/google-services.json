@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "973799572092",
+    "firebase_url": "https://whats-your-ulam.firebaseio.com",
+    "project_id": "whats-your-ulam",
+    "storage_bucket": "whats-your-ulam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:973799572092:android:4f71954e6340c381773ff9",
+        "android_client_info": {
+          "package_name": "com.example.whatsurulam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "973799572092-518oktapevvmsloq7630gckv1mf1kiml.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.whatsurulam",
+            "certificate_hash": "192aea86ebb4e2d1bccf6c31831e4c6840281575"
+          }
+        },
+        {
+          "client_id": "973799572092-utsnk74iv4ihdrum87au0g6emclni7b4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQjwu_cO4v5b51UwSZfQlVcQ6pEPiZoAo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "973799572092-utsnk74iv4ihdrum87au0g6emclni7b4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
