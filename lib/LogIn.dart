@@ -2,6 +2,18 @@ import 'auth.service.dart';
 import 'main.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:whatsurulam/home.page.dart';
+
+import 'auth.service.dart';
+import 'main.dart';
+import 'package:flutter/painting.dart';
+import 'SignUp.dart';
+import 'LogIn.dart';
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
+final GoogleSignIn googleSignIn = GoogleSignIn();
 
 class LogIn extends StatefulWidget {
   @override
@@ -14,6 +26,7 @@ class _LogInState extends State<LogIn> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
+
   Widget build01(BuildContext context){
     return MaterialApp(
       home: Container(
@@ -23,12 +36,14 @@ class _LogInState extends State<LogIn> {
         ),
       ),
     ),
+
     );
   }
 
   @override
   Widget build(BuildContext context) => new Scaffold(
       appBar: new AppBar(
+
         title: new Text('Login'),
         backgroundColor: Colors.orange,
       ),
@@ -57,6 +72,7 @@ class _LogInState extends State<LogIn> {
                             )
                           )
                           )
+
                         ),
                         Padding(
                           padding: const EdgeInsets.only(
@@ -91,10 +107,12 @@ class _LogInState extends State<LogIn> {
                                 }else
                                   return null;
                               },
+
                             ),
                           ),
                         ),
                         Padding(
+
                           padding:const EdgeInsets.only(
                               left: 25.0, right: 25.0),
                           child:Center(
@@ -163,7 +181,3 @@ class _LogInState extends State<LogIn> {
 
               );
 }
-
-
-
-

@@ -15,6 +15,8 @@ class _SignUpState extends State<SignUp> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _password2Controller = TextEditingController();
+  bool isEmpty1 = true;
+  bool isEmpty2 = true;
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -111,6 +113,7 @@ class _SignUpState extends State<SignUp> {
                             if (value.isEmpty) {
                               return 'Please enter your password';
                             }
+
                             return null;
                           },
                           obscureText: true,
@@ -129,7 +132,9 @@ class _SignUpState extends State<SignUp> {
                             if (value.isEmpty) {
                               return 'Please confirm your password';
                             }
-
+                            else if (value != _passwordController.text) {
+                              return 'Passwords do not match';
+                            }
                             return null;
                           },
                           obscureText: true,
@@ -147,6 +152,7 @@ class _SignUpState extends State<SignUp> {
                               //                              // Process data.
                             }
 
+
                             if (passValidate()==true){
                               String _fname = _fnameController.toString();
                               String _lname = _lnameController.toString();
@@ -157,6 +163,7 @@ class _SignUpState extends State<SignUp> {
                             } else{
                               print("passwords do not match");
                             }
+
                           },
                           child: Text('Submit'),
                         ),
@@ -182,3 +189,4 @@ class _SignUpState extends State<SignUp> {
     }
   }
 }
+

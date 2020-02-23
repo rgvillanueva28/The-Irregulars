@@ -9,12 +9,12 @@ void main() async {
   // Set default home.
   Widget _defaultHome = new LogIn();
 
+
   // Get result of the login function.
   bool _result = await appAuth.login();
   if (_result) {
     _defaultHome = new HomePage();
   }
-
 
   // Run app!
   runApp(new MaterialApp(
@@ -27,5 +27,3 @@ void main() async {
 
     },
   ));
-
-}

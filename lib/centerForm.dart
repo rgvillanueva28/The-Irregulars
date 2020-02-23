@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'SignUp.dart';
 import 'LogIn.dart';
+import 'home.page.dart';
+import 'auth.service.dart';
+
 
 void main() {
   runApp(
@@ -45,7 +48,6 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
 
-
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -86,6 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
           IconButton(
               icon: Icon(Icons.people),
               onPressed: null)
+
         ],
       ),
       body: Center(
